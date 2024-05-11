@@ -1,0 +1,69 @@
+First step - https://labs.play-with-docker.com/ - for starting the exercise
+Second step - registration and start Play with Docker
+
+2. Getting to Know the Console.
+Task - 1:
+Let's start writing the command in the docker playground.
+On the prompt, we can input the user and password that we created during the installation. Of course, we can use the
+root user, but it is not considered a good practice.
+Now, let’s check where (in which folder) we are with the pwd command:
+
+========================
+Command:
+pwd - shows the directory path
+
+Task - 2:
+There is nothing or at least it appears to be this way. Of course, what we will see here on a clean new installation
+depends on what distribution we chose and what settings there are by default.
+Even though we are not familiar with all options on the ls command yet, let's check if there are any hidden files and
+folders with:
+
+========================
+Command:
+ls -al - shows all hidden files and folders
+
+Task - 3:
+We can also give arguments, not only options. For example, we can check what we have in the main (root) folder.
+The "/" symbol is used to state that we want to access the root of our file system:
+
+========================
+Command:
+ls -al / - shows everything in our main (root) folder
+
+Task - 4:
+Let's change the folder. For example, go to the "/etc" folder. This is the place where most of the configuration files
+are stored. Then we can check if indeed we changed the folder:
+
+========================
+Command:
+cd /etc - change the folder and open a new one. As it change the path where the SHELL operates.
+
+Task - 5:
+Now, we can check what date is today and what is the time now:
+
+========================
+Command:
+date - shows the date
+
+Task - 6:
+There is a way to modify the output of the date command:
+
+========================
+Command:
+date +%Y-%m-%d
+
+Task - 7:
+Should we need a calendar on the command line, we can have it easily with:
+
+========================
+Command:
+cal -3 - shows the calendar for the last 3 months
+
+Task - 8:
+At any point we can ask for the history of executed commands:
+
+========================
+Command:
+history - all commands that we used in the last session
+
+
