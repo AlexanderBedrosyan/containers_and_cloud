@@ -1,3 +1,5 @@
+1. Configure Connectivity of the VM
+
 First step - https://labs.play-with-docker.com/ - for starting the exercise
 Second step - registration and start Play with Docker
 
@@ -66,4 +68,28 @@ At any point we can ask for the history of executed commands:
 Command:
 history - all commands that we used in the last session
 
+3. Getting to Know Environment Variables
 
+Task - 1:
+Let's start with the environment exploration process. Try out the set command and look at its result:
+
+========================
+Command:
+set | less - shows the environment process
+
+Task - 2:
+The set command can be used to modify the parameters that are driving the environment. In order to see what parameters
+are there, we can execute:
+
+========================
+Command:
+set -o - shows all process that we can modify
+
+4. Getting Helo
+
+Task - 1:
+We can see the same information but prepared for re-use with:
+
+========================
+Command:
+help | less - give us more information
