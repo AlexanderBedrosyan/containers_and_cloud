@@ -34,3 +34,32 @@ image.
 3) docker run -p 5000:80 -d nginxdemos/hello - runs container but -d give us a chance to not continue use the same CMD
 
 4) docker run -p 5000:80 -d --name sakeeE nginxdemos/hello - now we have name includes (sakeeE)
+
+Task - 3:
+
+Examine and Delete Container and Image
+We can see all containers we have like this:
+
+========================
+Command:
+
+docker ps -a - shows all containers
+docker ps - shows only running containers
+
+In our case, we have a single running container and we have the same output from the two commands.
+Now let's use the terminal to stop and delete our container. Use the following commands with the container id or
+container name:
+
+========================
+Command:
+
+docker stop sakeeE - this command stop our running container
+docker rm sakeeE - delete the container
+
+Both commands return the id or the name of the container.
+Finally, we can also delete the NGINX server image:
+
+========================
+Command:
+
+docker rmi nginxdemos/hello - remove image (rmi)
