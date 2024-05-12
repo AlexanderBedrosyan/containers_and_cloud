@@ -1,0 +1,36 @@
+1. NGINX Server Container
+
+In this task, we will run a simple NGINX server in a Docker container. The server only returns some server information:
+
+Task - 1:
+
+To create a NGINX server container, we shall first pull the NGINX server image from Docker Hub. You can find the image
+documentation on Docker Hub here: https://hub.docker.com/r/nginxdemos/hello. You can always refer to the documentation
+to get instructions on how to pull, build and run the image:
+
+Open a CLI, for example, PowerShell or Windows Terminal or Command Prompt (PowerShell is recommended), and let's first
+pull the Docker image of the server. You should just use the pull command from the documentation:
+
+========================
+Command:
+
+docker pull nginxdemos/hello - create a new image in the docker as used the noted nginxdemos/hello
+docker images - shows all images which the docker includes
+
+Task - 2:
+
+Now we want to run a container with the NGINX server image, which is already downloaded from Docker Hub to our local
+machine. Use the docker run command and try this way:
+
+========================
+Command:
+
+1) docker run nginxdemos/hello - this one runs a container but without name and other details which are needed. Also
+this one shows the logs in real time and we need to open a second CMD to use new processes.
+
+2) docker run -p 5000:80 nginxdemos/hello - runs container but this time includes the port which can be used for the
+image.
+
+3) docker run -p 5000:80 -d nginxdemos/hello - runs container but -d give us a chance to not continue use the same CMD
+
+4) docker run -p 5000:80 -d --name sakeeE nginxdemos/hello - now we have name includes (sakeeE)
