@@ -63,3 +63,37 @@ Finally, we can also delete the NGINX server image:
 Command:
 
 docker rmi nginxdemos/hello - remove image (rmi)
+
+
+
+2. Vue.js App in Container
+
+Now we will see how to run a Vue.js app in a Docker container. We will create an app just for the demo.
+Create and Set Up a Vue.js App
+Let's use Terminal to create an app called MyWebsite, in a folder you choose:
+
+========================
+Command:
+
+npm install -g @vue/cli - install the vue package
+vue init browserify MyWebsite - create a new folder
+cd MyWebsite
+docker pull node:16
+
+Now let's run the application locally in the standard way to check if everything works as expected:
+
+========================
+Command:
+
+npm run dev
+
+Now we should modify the app's package.json file, so that the app runs on the IP we want. Open the file in any editor
+and change the scripts section settings like this:
+Run the App in a Container
+To run the Vue.js app in a container, we will need to create a container with an exposed port, a volume and an
+interactive shell, so that we can run the app inside the container with the docker run command.
+
+========================
+Command:
+
+docker run -it -p 8080:8080 -v %cd%:/app -w /app node:16 npm run serve - this will run our app
