@@ -97,3 +97,50 @@ interactive shell, so that we can run the app inside the container with the dock
 Command:
 
 docker run -it -p 8080:8080 -v %cd%:/app -w /app node:16 npm run serve - this will run our app
+
+3. MongoDB in Container
+
+Our next task is to run a container with a Mongo database in it. To do this, we will need the following image from Docker Hub: https://hub.docker.com/_/mongo
+You can look at the "How to use this Image" section to learn how to run the database container. However, we will also show and explain the process step by step.
+Create the Container
+First, pull the latest MongoDB image with the docker pull mongo command:
+
+========================
+Command:
+
+docker pull mongo - create image for mongo
+
+Our next step is to run the container, using the following command:
+
+•	docker run → starts a new Docker container;
+•	-p 27017:27017 → sets the external and internal ports to 27017, so that we can access the MongoDB from outside the container;
+•	-v ${PWD}/data:/etc/mongo
+o	${PWD} → the host directory;
+o	/etc/mongo → the container directory;
+•	-d → runs the container in detached mode (it will run in the background);
+•	-e MONGO_INITDB_ROOT_USERNAME=mongoadmin → sets the admin username;
+•	-e MONGO_INITDB_ROOT_PASSWORD=mongoadminpass → sets the admin password;
+•	mongo → specifies the image.
+You should disable host's MongoDB Server instances or use another port!
+Admin password should always follow the rules from the documentation.
+When MongoDB Server container is started, other apps can log in to it and use the database.
+
+========================
+Command:
+
+docker run -d -p 27017:27017 -v "%cd%/data /data/db" -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e /
+MONGO_INITDB_ROOT_PASSWORD=mongoadminpass mongo - add all details when we run the container
+
+Run a Database Container with Volume
+To persist data after container is stopped, create a volume, using the following command:
+
+========================
+Command:
+
+docker run ^
+More? -p 27017:27017 ^
+More? -v data:/etc/mongo ^
+More? -d ^
+More? -e MONGO_INITDB_ROOT_USERNAME=mongoadmin ^
+More? -e MONGO_INITDB_ROOT_PASSWORD=mongoadminpass ^
+More? mongo - add volume
