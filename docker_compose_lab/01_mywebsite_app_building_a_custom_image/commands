@@ -1,0 +1,6 @@
+docker image build -t my-webapp . - build the structure of the app
+docker images - check the images
+docker login
+docker tag my-webapp token
+docker push
+docker run -d -p 8080:8080 token
