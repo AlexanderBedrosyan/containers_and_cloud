@@ -1,0 +1,23 @@
+docker network create my_network - create a new network
+docker network ls - check the created networks
+
+docker run -dit --name wordpres_db 
+-e MYSQL_ROOT_PASSWORD=pass 
+-e MYSQL_DATABASE=wordpressdb 
+-e MYSQL_USER=wordpress 
+-e MYSQL_PASSWORD=wordpress 
+--expose 3306 
+--expose 33060 
+--network my_network -v "$(pwd)/data:/var/lib/mysql" 
+mysql - all this comands are in one line on different rows and create image
+
+docker run -dit \
+> --name wordpress_website \
+> -e WORDPRESS_DB_HOST=wordpress_db \
+> -e WORDPRESS_DB_USER=wordpress \
+> -e WORDPRESS_DB_PASSWORD=wordpress \
+> -e WORDPRES_DB_NAME=wordpressdb \
+> -v "$(pwd)/wd-data:/var/www/html" \
+> -p 80:80 \
+> --network my_network \
+> wordpress - create a new image with wordpress_website and start container with it
