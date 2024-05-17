@@ -1,0 +1,2 @@
+docker pull ghost:latest
+docker run --name ghost-container -p 3001:2368 -e NODE_ENV=development -e option -d ghost
