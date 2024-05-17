@@ -1,0 +1,11 @@
+docker pull mariadb
+
+docker network create mariadb
+
+docker run -d --network mariadb --name mariadb-server -e MARIADB_USER=mariadbuser -e MARIADB_PASSWORD=mariadbpassword -e MARIADB_ROOT_PASSWORD=mariadbrootpassword -e MARIADB_DATABASE=client_test mariadb
+
+docker run -it --network mariadb --rm mariadb mariadb \
+  --host=mariadb-server \
+  --user=mariadbuser \
+  --password=mariadbpassword \
+  --database=client_test
