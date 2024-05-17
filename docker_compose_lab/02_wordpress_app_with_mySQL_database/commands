@@ -21,3 +21,8 @@ docker run -dit \
 > -p 80:80 \
 > --network my_network \
 > wordpress - create a new image with wordpress_website and start container with it
+
+03. Solution commands
+
+docker-compose build
+docker-compose up -d command

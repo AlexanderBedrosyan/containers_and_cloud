@@ -1,0 +1,39 @@
+name: wordpress_homework
+services:
+    mysql:
+        stdin_open: true
+        tty: true
+        container_name: wordpress_db
+        environment:
+            - MYSQL_DATABASE=wordpressdb
+            - MYSQL_ROOT_PASSWORD=wordpressdbpass
+            - MYSQL_USER=wordpress
+            - MYSQL_PASSWORD=wordpress
+        expose:
+            - 3306
+            - 33060
+        networks:
+            - wordpress
+        volumes:
+            - ${PWD}/data:/var/lib/mysql
+        image: mysql
+    wordpress:
+        stdin_open: true
+        tty: true
+        container_name: wordpress_web
+        environment:
+            - WORDPRESS_DB_HOST=wordpress_db
+            - WORDPRESS_DB_USER=wordpress
+            - WORDPRESS_DB_PASSWORD=wordpress
+            - WORDPRESS_DB_NAME=wordpressdb
+        volumes:
+            - ${PWD}/wp-data:/var/www/html
+        ports:
+            - 80:80
+        networks:
+            - wordpress
+        image: wordpress
+networks:
+    wordpress:
+        external: true
+        name: wordpress
