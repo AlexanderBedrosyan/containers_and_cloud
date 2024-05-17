@@ -1,0 +1,2 @@
+
+docker run -e ACCEPT_EULA=Y -e MSSQL_SA_PASSWORD=ASD#asda2 -p 1433:1433 -v sqldata:/var/opt/mssql -d mcr.microsoft.com/mssql/server
